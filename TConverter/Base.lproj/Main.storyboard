@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="YpO-Sw-bOA">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="-6" width="390" height="850"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TConverter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6z-4y-MZN">
                                 <rect key="frame" x="83" y="101" width="224" height="45"/>
@@ -25,8 +25,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32ºF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ri-Ay-qZB">
-                                <rect key="frame" x="159" y="457" width="72" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ri-Ay-qZB">
+                                <rect key="frame" x="166.33333333333334" y="457" width="57.333333333333343" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,6 +56,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNE-EQ-SpT">
+                                <rect key="frame" x="93.666666666666686" y="545" width="203" height="42"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <state key="normal" title="Changing the scale">
+                                    <color key="titleColor" red="0.96430414919999996" green="0.62405407430000004" blue="0.1964222789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vYr-5r-p84"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -66,13 +77,15 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="YpO-Sw-bOA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pmh-Sv-enU"/>
+                            <constraint firstItem="jNE-EQ-SpT" firstAttribute="top" secondItem="5Ri-Ay-qZB" secondAttribute="bottom" constant="46" id="Ssq-hB-rKq"/>
                             <constraint firstItem="5Ri-Ay-qZB" firstAttribute="top" secondItem="2c2-0T-Pdo" secondAttribute="bottom" constant="48" id="Taf-I5-nA3">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="YpO-Sw-bOA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="XfJ-pb-JGJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="YpO-Sw-bOA" secondAttribute="top" constant="44" id="aMk-s1-RmT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="YpO-Sw-bOA" secondAttribute="top" constant="50" id="aMk-s1-RmT"/>
                             <constraint firstItem="5Ri-Ay-qZB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b55-nN-EmZ"/>
                             <constraint firstItem="2c2-0T-Pdo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cGm-sR-ZGF"/>
+                            <constraint firstItem="jNE-EQ-SpT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dkC-hu-1qP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YpO-Sw-bOA" secondAttribute="trailing" id="plm-YY-Bk2"/>
                             <constraint firstItem="C7L-0V-gRR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tST-ie-dz4"/>
                             <constraint firstItem="D6z-4y-MZN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="us7-ud-orQ"/>
@@ -111,6 +124,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="changeT" destination="jNE-EQ-SpT" id="J16-o7-AhL"/>
                         <outlet property="dinamicLabel" destination="5Ri-Ay-qZB" id="tSo-BL-1d2"/>
                         <outlet property="slider" destination="2c2-0T-Pdo" id="MEf-h8-b1Y"/>
                         <outlet property="staticLabel" destination="C7L-0V-gRR" id="uCy-b9-kfM"/>
@@ -123,6 +137,9 @@
     </scenes>
     <resources>
         <image name="day" width="375" height="667"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
